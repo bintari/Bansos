@@ -36,7 +36,6 @@
                 </div>
                 <?php echo form_error('soal2', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-
                 Saat ini merasa kesulitan bernafas atau sesak nafas
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal3" id="jawaban31" value="1">
@@ -52,8 +51,7 @@
                 </div>
                 <?php echo form_error('soal3', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-
-                Saat ini merasa mengalami nyeri tenggorokan
+                Memiliki riwayat penyakit Asma
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal4" id="jawaban41" value="1">
                     <label class="form-check-label" for="jawaban41">
@@ -69,7 +67,7 @@
                 <?php echo form_error('soal4', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
 
-                Lama penyakit kurang dari 14 hari
+                Memiliki riwayat Pnemonia
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal5" id="jawaban51" value="1">
                     <label class="form-check-label" for="jawaban51">
@@ -83,7 +81,6 @@
                     </label>
                 </div>
                 <?php echo form_error('soal5', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
-
 
                 Memiliki riwayat kontak dengan penderita terkonfirmasi COVID-19
                 <div class="form-check">

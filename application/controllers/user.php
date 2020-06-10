@@ -122,16 +122,10 @@ class user extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-
-
-
-
-        // $this->form_validation->set_rules('nama_keluar', 'nama_keluar', 'required|trim');
-        // $this->form_validation->set_rules('alamat_keluar', 'alamat_keluar', 'required|trim');
-        // $this->form_validation->set_rules('tujuan_keluar', 'tujuan_keluar', 'required|trim');
-        // $this->form_validation->set_rules('waktu_keluar', 'waktu_keluar', 'required|trim');
-
-
+        $this->form_validation->set_rules('nama_keluar', 'nama_keluar', 'required|trim');
+        $this->form_validation->set_rules('alamat_keluar', 'alamat_keluar', 'required|trim');
+        $this->form_validation->set_rules('tujuan_keluar', 'tujuan_keluar', 'required|trim');
+        $this->form_validation->set_rules('waktu_keluar', 'waktu_keluar', 'required|trim');
         if ($this->form_validation->run() == false) {
 
             $this->load->view('templates/header', $data);
@@ -146,12 +140,15 @@ class user extends CI_Controller
             $alamat_keluar = $this->input->post('alamat_keluar');
             $tujuan_keluar = $this->input->post('tujuan_keluar');
             $waktu_keluar = $this->input->post('waktu_keluar');
+            $id_user        = $data['user']['id'];
 
             $data = array(
-                'nama_keluar' => $nama_keluar,
+                'id_keluar'     => '',
+                'id_userK'      => $id_user,
+                'nama_keluar'   => $nama_keluar,
                 'alamat_keluar' => $alamat_keluar,
                 'tujuan_keluar' => $tujuan_keluar,
-                'waktu_keluar' => $waktu_keluar
+                'waktu_keluar'  => $waktu_keluar
             );
 
             //     // $tamu_nama = $this->input->post('tamu_nama');
@@ -168,6 +165,80 @@ class user extends CI_Controller
 
             $this->db->insert('keluar', $data);
             redirect('auth');
+        }
+    }
+
+    public function kesehatan()
+    {
+        $data['tittle'] = "Pantauan Pemudik";
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('soal1', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal2', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal3', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal4', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal5', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal6', 'Perlu dijawab', 'required|trim');
+        // $this->form_validation->set_rules('soal7', 'Perlu dijawab', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pantauan/kesehatan');
+            $this->load->view('templates/footer');
+        } else {
+            $soal1 = $this->input->post('soal1');
+            $soal2 = $this->input->post('soal2');
+            $soal3 = $this->input->post('soal3');
+            $soal4 = $this->input->post('soal4');
+            $soal5 = $this->input->post('soal5');
+            $jawaban = $soal1 . ',' . $soal2 . ',' . $soal3 . ',' . $soal4 . ',' . $soal5;
+
+            if ($jawaban == "1,0,0,0,0") {
+                $hasil = "Batuk Biasa";
+                print $hasil;
+                if ($jawaban == "1,1,0,0,0") {
+                    $hasil = "Batuk Biasa";
+                    echo $hasil;
+                    if ($jawaban = "1,1,1,0,0") {
+                        $hasil = "Batuk level 2";
+                        echo $hasil;
+                        if ($jawaban = "1,1,1,1,0") {
+                            $hasil = "Batuk level 2";
+                            echo $hasil;
+                            if ($jawaban = "1,1,1,1,1") {
+                                $hasil = "Batuk luar biasa";
+                                echo $hasil;
+                                //     }else
+
+                                // }else
+                            }
+                        }
+                    } else if ($jawaban = "1,1,0,1,0") {
+                        $hasil = "Batuk Biasa";
+                        echo $hasil;
+                    } else if ($jawaban = "1,0,1,0,0") {
+                        $hasil = "Batuk Biasa";
+                        echo $hasil;
+                    } else {
+                    }
+                    // }else
+
+                } else if ($jawaban == "0,1,0,0,0") {
+                }
+            }
+
+            $data = [
+                'id_diagnosa'       => '',
+                'id_user'           => $data['user']['id'],
+                'hasil'             => $hasil
+            ];
+
+            $this->db->insert('diagnosa', $data);
+
+            redirect('user');
         }
     }
 

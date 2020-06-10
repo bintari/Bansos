@@ -26,7 +26,7 @@
                             <th><?= $mn['menu'] ?></th>
                             <th>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" <?= check_access($role['id'], $mn['id']); ?> data-role="<?= $role['id']; ?>" data-menu="<?= $mn['id']; ?>">
+                                    <input class="form-check-input role" type="checkbox" <?= check_access($role['id'], $mn['id']); ?> data-role="<?= $role['id']; ?>" data-menu="<?= $mn['id']; ?>">
                                 </div>
                             </th>
                         </tr>

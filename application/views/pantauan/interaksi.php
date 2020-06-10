@@ -1,48 +1,42 @@
-<script>
-    function DoCheckUncheckDisplay(d, dchecked, dunchecked) {
-        if (d.checked == true) {
-            document.getElementById(dchecked).style.display = "block";
-            //   document.getElementById(dunchecked).style.display = "none";
-        } else {
-            document.getElementById(dchecked).style.display = "none";
-            //   document.getElementById(dunchecked).style.display = "block";
-        }
-    }
-</script>
+<div class="container-fluid">
+    <form action="<?= base_url() ?>pantauan/interaksi" method="POST">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Interaksi Keluar</h6>
+            </div>
 
+            <div class="card-body">
+                <div class="col-sm-10">
+                    Nama Tempat yang Dikunjungi
+                    <input type="text" id="nama_keluar" name="nama_keluar" class="form-control">
+                </div>
+                <?php echo form_error('nama_keluar', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
+                <div class="col-sm-10">
+                    Alamat Tempat
+                    <input type="text" id="alamat_keluar" name="alamat_keluar" class="form-control">
+                </div>
+                <?php echo form_error('alamat_keluar', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-<input type="checkbox" onclick="DoCheckUncheckDisplay(this,'checkbox-checked','checkbox-unchecked')" style="margin:0;">
-Keluar rumah atau tempat isolasi mandiri
+                <div class="col-sm-10">
+                    Tujuan Keluar
+                    <input type="text" id="tujuan_keluar" name="tujuan_keluar" class="form-control">
+                </div>
+                <?php echo form_error('tujuan_keluar', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-<?= form_open_multipart('user/tamu'); ?>
-<div id="ceklis" style="display:none;">
-    <div class="row">
-        <div class="col-lg-8">
-            <label for="name" class="col-sm-2 col-form-label">Nama</label>
-            <div class="col-sm-10">
-                <input type="text" id="tamu_nama" name="tamu_nama" class="form-control">
+                <div class="col-sm-10">
+                    Waktu keluar<br>
+                    <input type="time" id="waktu_keluar" name="waktu_keluar">
+                    <input type="time" id="waktu_pulang" name="waktu_pulang">
+                    <?php echo form_error('waktu_keluar', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
+                </div>
+                <div class="col-sm-10">
+                    <br><button type="submit" class="btn btn-outline-primary">Simpan</button>
+                </div>
             </div>
-            <label for="name" class="col-sm-2 col-form-label">Alamat</label>
-            <div class="col-sm-10">
-                <input type="text" id="tamu_alamat" name="tamu_alamat" class="form-control">
-            </div>
-            <label for="name" class="col-sm-2 col-form-label">tujuan</label>
-            <div class="col-sm-10">
-                <input type="text" id="tamu_tujuan" name="tamu_tujuan" class="form-control">
-            </div>
-            <label for="name" class="col-sm-2 col-form-label">waktu</label>
-            <div class="col-sm-10">
-                <input type="text" id="tamu_waktu" name="tamu_waktu" class="form-control">
-            </div>
-            <label for="name" class="col-sm-2 col-form-label">nomor telepon</label>
-            <div class="col-sm-10">
-                <input type="text" id="tamu_nomorhp" name="tamu_nomorhp" class="form-control">
-            </div>
+
         </div>
-    </div>
 </div>
-
 </div>
 </div>
 
