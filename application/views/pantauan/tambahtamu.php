@@ -32,16 +32,10 @@
                 <div class="col-sm-10">
                     <br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="submit" href="<?= base_url() ?>pantuan/tamu" class="btn btn-primary">Simpan</button>
+                    <a class="btn btn-warning btn-xs" href="<?= base_url() ?>pantuan/tamu" title="tambah"><span class="fas fa-edit fa-xs"></span></a>
                 </div>
             </div>
     </form>
 </div>
 </div>
 </div>
-
-<!-- End of Main Content -->
-<!-- 
-<div id="checkbox-unchecked" style="display:none; color:red;">
-    The checkbox is unchecked.
-</div> -->

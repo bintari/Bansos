@@ -8,6 +8,7 @@ class user extends CI_Controller
     {
         parent::__construct();
         is_log_in();
+        
     }
 
     public function index()

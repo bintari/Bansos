@@ -34,8 +34,7 @@
                     <br><button type="submit" class="btn btn-outline-primary">Simpan</button>
                 </div>
             </div>
-
-        </div>
+    </form>
 </div>
 </div>
 </div>
