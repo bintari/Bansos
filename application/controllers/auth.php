@@ -142,17 +142,17 @@ class auth extends CI_Controller
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_user' => 'pantaupemudik@gmail.com',
             'smtp_pass' => 'Semester6',
-            'smtp_port' => 465,
+            'smtp_port' => 25,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
 
         $this->load->library('email', $config);
-        // // $this->email->initialize($config);
+        $this->email->initialize($config);
 
         $this->email->from('pantaupemudik@gmail.com');
-        $this->email->to('bbintari@gmail.com');
+        $this->email->to('bbintari13@gmail.com');
         $this->email->subject('Testing');
         $this->email->message('helloword');
 
