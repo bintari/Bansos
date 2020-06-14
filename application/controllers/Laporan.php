@@ -16,12 +16,21 @@ class Laporan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $tampil['user'] = $this->m_laporan->tampil_user();
+        // $tampil['user'] = $this->m_laporan->tampil_user();
+        // $tampil['keluar'] = $this->m_laporan->tampil_keluar();
+
+        $id_user        = $data['user']['id'];
+        $data['keluar'] = $this->db->get_where('keluar', ['id_userK' => $id_user], 'd_created')->result_array();
+
+
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('laporan/user', $tampil);
+        // $this->load->view('laporan/user', $data);
+        $this->load->view('pantauan/tampiltamu', $data);
+
         $this->load->view('templates/footer');
     }
     public function treking()
@@ -35,7 +44,9 @@ class Laporan extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('laporan/user', $tampil);
+        // $this->load->view('laporan/user', $tampil);
+        $this->load->view('pantauan/tampiltamu', $tampil);
+
         $this->load->view('templates/footer');
     }
 }

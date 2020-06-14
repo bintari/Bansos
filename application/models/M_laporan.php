@@ -9,11 +9,11 @@ class M_laporan extends CI_Model
         return $tampil;
     }
 
-    function getUserByID($kode)
+    function getUserByID($id_user)
     {
         $this->db->select('*');
         $this->db->from('keluar');
-        $this->db->where('id', $kode);
+        $this->db->where('id_userK', $id_user);
         return $this->db->get()->row_array();
     }
 

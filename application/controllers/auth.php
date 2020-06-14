@@ -107,7 +107,7 @@ class auth extends CI_Controller
                 'image'         => 'default.png',
                 'password'      => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id'       => 2,
-                'is_active'     => 1,
+                'is_active'     => 0,
                 'd_created'     => time()
             ];
 
@@ -120,52 +120,69 @@ class auth extends CI_Controller
             //     'token' => $token,
             //     'date_created' => time()
             // ];
-
-            $this->db->insert('user', $data);
+//matiin dulu
+            // $this->db->insert('user', $data);
+            $this-> _sendEmail();
             // $this->db->insert('user_token', $user_token);
 
 
-            // $this->_sendEmail($token, 'verify');
+            
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun wisan dadi bisa dinggo </div>');
 
-            redirect('auth');
+            // redirect('auth');
         }
     }
 
-    private function _sendEmail($token, $type)
+    private function _sendEmail()
     {
         $config = [
-            'protocol' => 'smtp',
+            'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'slpatmdnt.piccolo@gmail.com',
-            'smtp_pass' => 'kurn14w4n',
+            'smtp_user' => 'pantaupemudik@gmail.com',
+            'smtp_pass' => 'Semester6',
             'smtp_port' => 465,
-            'mailtype' => 'html',
-            'charset' => 'utf-8',
-            'newline' => "\r\n"
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'newline'   => "\r\n"
         ];
 
-        $this->email->initialize($config);
+        $this->load->library('email', $config);
+        // // $this->email->initialize($config);
 
-        $this->email->from('slpatmdnt.piccolo@gmail.com', 'CI Login');
-        $this->email->to($this->input->post('email'));
-        if ($type == 'verify') {
-            $this->email->subject('Account Verification');
-            $this->email->message('Click this link to verify your account : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activated</a>');
-        } else if ($type == 'forgot') {
-            $this->email->subject('Reset Password');
-            $this->email->message('Click this link to reset your password : <a href="' . base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
-        }
+        $this->email->from('pantaupemudik@gmail.com');
+        $this->email->to('bbintari@gmail.com');
+        $this->email->subject('Testing');
+        $this->email->message('helloword');
 
+        // $this->email->send();
 
         if ($this->email->send()) {
             return true;
         } else {
             echo $this->email->print_debugger();
             die;
-        }
+        };
+
+
+
+        // $this->email->to($this->input->post('email'));
+        // if ($type == 'verify') {
+        //     $this->email->subject('Account Verification');
+        //     $this->email->message('Click this link to verify your account : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activated</a>');
+        // } else if ($type == 'forgot') {
+        //     $this->email->subject('Reset Password');
+        //     $this->email->message('Click this link to reset your password : <a href="' . base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
+        // }
+
+
+        // if ($this->email->send()) {
+        //     return true;
+        // } else {
+        //     echo $this->email->print_debugger();
+        //     die;
+        // }
     }
 
     public function verify()

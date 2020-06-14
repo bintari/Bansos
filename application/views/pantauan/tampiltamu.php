@@ -16,8 +16,8 @@
                         <tr>
                             <td>nama</td>
                         </tr>
-                        <?php foreach ($keluar as $a) :
-                            $nama = $a['nama_keluar']; ?>
+                        <?php foreach ($tamu as $a) :
+                            $nama = $a['tamu_nama']; ?>
                             <tr>
                                 <td> <?= $nama; ?></td>
                             </tr>

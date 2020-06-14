@@ -152,6 +152,9 @@ class Pantauan extends CI_Controller
             $waktu_pulang = $this->input->post('waktu_pulang');
             $id_user        = $data['user']['id'];
 
+
+
+
             $data = array(
                 'id_keluar'     => '',
                 'id_userK'      => $id_user,
@@ -159,15 +162,30 @@ class Pantauan extends CI_Controller
                 'alamat_keluar' => $alamat_keluar,
                 'tujuan_keluar' => $tujuan_keluar,
                 'waktu_keluar'  => $waktu_keluar,
-                'waktu_pulang'  => $waktu_pulang
+                'waktu_pulang'  => $waktu_pulang,
+                'd_created'     => date('Y-m-d')
+
+
 
             );
 
 
 
             $this->db->insert('keluar', $data);
-            redirect('auth');
+            redirect('pantauan/tampilinteraksi');
+            // redirect('auth');
         }
+    }
+
+    public function tampilinteraksi()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $id_user        = $data['user']['id'];
+        $data['keluar'] = $this->db->get_where('keluar', ['id_user' => $id_user] & ['d_created' => date('Y-m-d')])->result_array();
+
+        $this->load->view('pantauan/tampilinput', $data);
     }
 
     public function tamu()
@@ -235,20 +253,19 @@ class Pantauan extends CI_Controller
 
 
             $this->db->insert('tamu', $data);
-            redirect('admin');
+            redirect('auth');
         }
     }
 
     public function tampiltamu()
     {
-        $data['tittle'] = "My  Profile";
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/footer');
+        $sekarang = date('Y-m-d H:i:s');
+        $id_user        = $data['user']['id'];
+        $data['tamu'] = $this->db->get_where('tamu', ['id_user' => $id_user] and ['d_created' => $sekarang])->result_array();
+
+        $this->load->view('pantauan/tampiltamu', $data);
     }
 }
