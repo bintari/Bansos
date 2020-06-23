@@ -107,7 +107,7 @@ class auth extends CI_Controller
                 'image'         => 'default.png',
                 'password'      => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id'       => 2,
-                'is_active'     => 0,
+                'is_active'     => 1,
                 'd_created'     => time()
             ];
 
@@ -121,17 +121,17 @@ class auth extends CI_Controller
             //     'date_created' => time()
             // ];
 //matiin dulu
-            // $this->db->insert('user', $data);
-            $this-> _sendEmail();
+            $this->db->insert('user', $data);
+            // $this-> _sendEmail();
             // $this->db->insert('user_token', $user_token);
 
 
             
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Akun wisan dadi bisa dinggo </div>');
+            Akun berhasil dibuat </div>');
 
-            // redirect('auth');
+            redirect('auth');
         }
     }
 

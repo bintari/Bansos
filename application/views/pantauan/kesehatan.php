@@ -6,7 +6,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Diagnosa</h6>
             </div>
             <div class="card-body">
-                Saat ini merasakan demam
+                Saat ini merasakan demam diatas 37 derajat
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal1" id="jawaban11" value="1">
                     <label class="form-check-label" for="jawanan11">
@@ -21,7 +21,7 @@
                 </div>
                 <?php echo form_error('soal1', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-                Saat ini merasakan batuk / pilek
+                Saat ini merasakan batuk pilek
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal2" id="jawaban21" value="1">
                     <label class="form-check-label" for="jawaban21">
@@ -51,7 +51,7 @@
                 </div>
                 <?php echo form_error('soal3', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-                Memiliki riwayat penyakit Asma
+                Memiliki riwayat kontak dengan penderita terkonfirmasi COVID-19
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal4" id="jawaban41" value="1">
                     <label class="form-check-label" for="jawaban41">
@@ -62,12 +62,11 @@
                     <input class="form-check-input" type="radio" name="soal4" id="jawaban42" value="0">
                     <label class="form-check-label" for="jawaban42">
                         Tidak
-                    </label>
+                    </label>`
                 </div>
                 <?php echo form_error('soal4', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
 
-
-                Memiliki riwayat Pnemonia
+                Menunggu hasil pemeriksaan swab test
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal5" id="jawaban51" value="1">
                     <label class="form-check-label" for="jawaban51">
@@ -77,36 +76,6 @@
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="soal5" id="jawaban52" value="0">
                     <label class="form-check-label" for="jawaban52">
-                        Tidak
-                    </label>
-                </div>
-                <?php echo form_error('soal5', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
-
-                Memiliki riwayat kontak dengan penderita terkonfirmasi COVID-19
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="soal6" id="jawaban61" value="1">
-                    <label class="form-check-label" for="jawaban61">
-                        Iya
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="soal6" id="jawaban62" value="0">
-                    <label class="form-check-label" for="jawaban62">
-                        Tidak
-                    </label>
-                </div>
-                <?php echo form_error('soal6', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
-
-                Menunggu hasil pemeriksaan swab test
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="soal7" id="jawaban71" value="1">
-                    <label class="form-check-label" for="jawaban71">
-                        Iya
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="soal7" id="jawaban72" value="0">
-                    <label class="form-check-label" for="jawaban72">
                         Tidak
                     </label>
                 </div>
