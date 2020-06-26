@@ -80,12 +80,20 @@ class Laporan extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();     
-        $data['userK'] = $this->db->get_where('user', ['id' => $trecking_id])->row_array();
 
-
-        $this->load->model('m_laporan');
-        $data['treking'] = $this->m_laporan->join($trecking_id);
-
+        
+        $data['userTr'] = $this->db->get_where('user', ['id' => $trecking_id])->result_array();
+        $data['userD'] = $this->db->get_where('diagnosa', ['id_userD' => $trecking_id])->result_array();
+        $data['userK'] = $this->db->get_where('keluar', ['id_userK' => $trecking_id])->result_array();
+        $data['userT'] = $this->db->get_where('tamu', ['id_userT' => $trecking_id])->result_array();
+        
+        //ini yang bikin dcreatednya sama
+        // foreach ($data['userD'] as $a) 
+        // {
+        //     $diagnosa        = $a['d_createdD'];
+        // }
+        // $this->load->model('m_laporan');
+        // $data['userK'] = $this->m_laporan->userK($trecking_id,$diagnosa);
 
         
         
@@ -97,7 +105,8 @@ class Laporan extends CI_Controller
 
         // $this->load->model('m_laporan');
         // $data['Tkeluar'] = $this->m_laporan->trecking_keluar();
-
+        
+        
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

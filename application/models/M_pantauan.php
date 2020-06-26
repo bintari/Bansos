@@ -30,7 +30,7 @@ class M_pantauan extends CI_Model
         $this->db->from('keluar');
         $this->db->where('id_userK', $id_user);
 
-        $this->db->like('d_created', $today);
+        $this->db->like('d_createdK', $today);
         return $this->db->get()->result_array();
     }
 
@@ -38,9 +38,9 @@ class M_pantauan extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tamu');
-        $this->db->where('id_user', $id_user);
+        $this->db->where('id_userT', $id_user);
 
-        $this->db->like('d_created', $today);
+        $this->db->like('d_createdT', $today);
         return $this->db->get()->result_array();
     }
 
@@ -48,8 +48,8 @@ class M_pantauan extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('diagnosa');
-        $this->db->where('id_user', $id_user);
-        $this->db->order_by('d_created','DESC');
+        $this->db->where('id_userD', $id_user);
+        $this->db->order_by('d_createdD','DESC');
 
         return $this->db->get()->row_array();
     }

@@ -23,12 +23,12 @@
                                         <?php echo form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Reset password?
+                                        Ganti Password
                                     </button>
                                     <hr>
                                 </form>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url() ?>auth">Back to Log-in</a>
+                                    <a class="small" href="<?= base_url('auth') ?>">Kembali Log-in</a>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                    <a href="#" class="btn btn-primary btn-icon-split">
+                    <a href="<?= base_url('pantauan/interaksi'); ?>" class="btn btn-primary btn-icon-split">
                         <span class="text">Tambah Data</span>
                     </a>
                     <div class="row">

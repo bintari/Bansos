@@ -25,7 +25,7 @@ class Pantauan extends CI_Controller
         // $kesehatan['d_created'] = $this->db->get('diagnosa')->row_array();
         $kesehatan = $this->m_pantauan->kesehatanwaktu($id_user);
 
-        if ($kesehatan['d_created'] == $today) {
+        if ($kesehatan['d_createdD'] == $today) {
             echo "ada";
         } else {
             echo "tidak ada";
@@ -134,9 +134,9 @@ class Pantauan extends CI_Controller
 
                     $data = [
                         'id_diagnosa'       => '',
-                        'id_user'           => $data['user']['id'],
+                        'id_userD'           => $data['user']['id'],
                         'hasil'             => $hasil,
-                        'd_created'     => date('Y-m-d', time())
+                        'd_createdD'     => date('Y-m-d', time())
                     ];
 
                     $this->db->insert('diagnosa', $data);
@@ -158,7 +158,7 @@ class Pantauan extends CI_Controller
         $this->form_validation->set_rules('nama_keluar', 'Nama_Keluar', 'required|trim', array('required' => 'Harap isi kolom nama tempat yang dikunjungi'));
         $this->form_validation->set_rules('alamat_keluar', 'Alamat_keluar', 'required|trim', array('required' => 'Harap isi kolom alamat tempat yang dikunjungi'));
         $this->form_validation->set_rules('tujuan_keluar', 'tujuan_keluar', 'required|trim', array('required' => 'Harap isi kolom tujuan mengunjungi'));
-        $this->form_validation->set_rules('waktu_keluar', 'required|trim', array('required' => 'Harap isi kolom waktu kunjungan'));
+        // $this->form_validation->set_rules('waktu_keluar', 'required|trim', array('required' => 'Harap isi kolom waktu kunjungan'));
 
         if ($this->form_validation->run() == false) {
 
@@ -188,7 +188,7 @@ class Pantauan extends CI_Controller
                 'tujuan_keluar' => $tujuan_keluar,
                 'waktu_keluar'  => $waktu_keluar,
                 'waktu_pulang'  => $waktu_pulang,
-                'd_created'     => date('Y-m-d')
+                'd_createdk'     => date('Y-m-d')
 
 
 
@@ -253,12 +253,12 @@ class Pantauan extends CI_Controller
 
             $data = array(
                 'tamu_id'       => '',
-                'id_user'       => $id_user,
+                'id_userT'       => $id_user,
                 'tamu_nama'     => $tamu_nama,
                 'tamu_alamat'   => $tamu_alamat,
                 'tamu_nomorhp'  => $tamu_nomorhp,
                 'tamu_waktu'    => $tamu_waktu,
-                'd_created'     => $tgl2
+                'd_createdT'     => $tgl2
             );
 
             $this->db->insert('tamu', $data);

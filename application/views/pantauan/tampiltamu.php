@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                    <a href="#" class="btn btn-primary btn-icon-split">
+                    <a href="<?= base_url('pantauan/tamu'); ?>" class="btn btn-primary btn-icon-split">
                         <span class="text">Tambah Data</span>
                     </a>
                     <div class="row">
@@ -66,40 +66,3 @@
 </div>
 
 
-
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <td>nama</td>
-                            <td>alamat</td>
-                            <td>nomor telepon</td>
-                        </tr>
-                        <?php foreach ($tamu as $a) :
-                            $nama = $a['tamu_nama'];
-                            $alamat = $a['tamu_alamat'];
-                            $nomor = $a['tamu_nomorhp'];
-                        ?>
-                            <tr>
-                                <td> <?= $nama; ?></td>
-                                <td> <?= $alamat; ?></td>
-                                <td> <?= $nomor; ?></td>
-                            </tr>
-
-                        <?php endforeach ?>
-                    </thead>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
