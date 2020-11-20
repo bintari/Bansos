@@ -31,7 +31,7 @@
                     <?php echo form_error('waktu_keluar', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
                 </div>
                 <div class="col-sm-10">
-                    <br><button type="submit" class="btn btn-outline-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
     </form>

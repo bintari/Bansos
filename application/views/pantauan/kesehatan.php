@@ -80,7 +80,7 @@
                     </label>
                 </div>
                 <?php echo form_error('soal7', '<small class="text-danger pl-3">', '</small>', '<br>'); ?>
-                <button type="submit" class="btn btn-outline-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </form>

@@ -11,42 +11,54 @@ class M_laporan extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    // function positif()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('diagnosa');
+    //     $this->db->where('hasil', 'dicurigai');
 
-    function getBarangByID($id)
-    {
-        $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('id', $id);
-        return $this->db->get()->row_array();
-    }
-    function tampil_input()
-    {
-        $tampil = $this->db->query("SELECT * FROM keluar");
-        return $tampil;
-    }
+    //     return $this->db->get()->result_array();
+    // }
 
-    function userK($trecking_id,$diagnosa)
-    {
-        
-        $this->db->select('*');
-        $this->db->from('keluar');        
-        $this->db->where('id_userK', $trecking_id);
-        // $this->db->get_where('keluar', ['id_userK' => $trecking_id]);
-        $this->db->like('d_createdK',$diagnosa);
-        return $this->db->get()->result_array();
+    // function tindakan($iduser)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('diagnosa');
+    //     $this->db->where('id_userD', $iduser);
+    //     return $this->db->get();
+    // }
 
-    }
+    // function getBarangByID($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('user');
+    //     $this->db->where('id', $id);
+    //     return $this->db->get()->row_array();
+    // }
+    // function tampil_input()
+    // {
+    //     $tampil = $this->db->query("SELECT * FROM keluar");
+    //     return $tampil;
+    // }
 
-    public function join($trecking_id)
-    {
-        $this->db->select('*');
-        $this->db->from('diagnosa');
-        $this->db->where('diagnosa.id_userD', $trecking_id);
-        $this->db->join('keluar', 'diagnosa.id_userD = keluar.id_userK');
-        $this->db->join('tamu', 'diagnosa.id_userD = tamu.id_userT');
+    // function userK($trecking_id, $diagnosa)
+    // {
 
-        return $this->db->get()->result_array();
-    }
+    //     $this->db->select('*');
+    //     $this->db->from('keluar');
+    //     $this->db->where('id_userK', $trecking_id);
+    //     // $this->db->get_where('keluar', ['id_userK' => $trecking_id]);
+    //     $this->db->like('d_createdK', $diagnosa);
+    //     return $this->db->get()->result_array();
+    // }
+    // public function join($trecking_id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('diagnosa');
+    //     $this->db->where('diagnosa.id_userD', $trecking_id);
+    //     $this->db->join('keluar', 'diagnosa.id_userD = keluar.id_userK');
+    //     $this->db->join('tamu', 'diagnosa.id_userD = tamu.id_userT');
 
-    
+    //     return $this->db->get()->result_array();
+    // }
 }

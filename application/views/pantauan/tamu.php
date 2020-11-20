@@ -32,7 +32,6 @@
                 <div class="col-sm-10">
                     <br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="submit" href="<?= base_url() ?>pantuan/tamu" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
     </form>

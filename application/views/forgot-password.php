@@ -9,17 +9,17 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
+                    <div class="col-lg-10 m-auto">
+        
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Forgot your password?</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Lupa Password</h1>
                                 </div>
 
                                 <?= $this->session->flashdata('message') ?>
                                 <form class="user" method="post" action="<?= base_url() ?>auth/forgotPassword">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Enter Email Address...">
+                                        <input type="text" class="form-control form-control-user" id="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email yang telah terdaftar">
                                         <?php echo form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -28,7 +28,7 @@
                                     <hr>
                                 </form>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('auth') ?>">Kembali Log-in</a>
+                                    <a class="small" href="<?= base_url('auth') ?>.email">Log In</a>
                                 </div>
                             </div>
                         </div>

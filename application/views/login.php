@@ -19,7 +19,7 @@
             <?= $this->session->flashdata('message') ?>
             <form class="user" method="post" action="<?= base_url() ?>auth">
               <div class="form-group">
-                <input type="text" class="form-control form-control-user" id="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Enter Email Address...">
+                <input type="text" class="form-control form-control-user" id="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email">
                 <?php echo form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
               <div class="form-group">
@@ -34,9 +34,13 @@
             <div class="text-center">
               <!-- <a class="small" href="<?= base_url('auth/forgotPassword') ?>">Forgot Password?</a> -->
             </div>
-            <div class="text-center">
+
+            <!-- <div class="text-center">
               <a class="small" href="<?= base_url() ?>auth/regristation">Buat akun</a>
-              <a class="small" href="<?= base_url() ?>auth/forgotPassword">Lupa Password</a>
+            </div>-->
+            <div class="text-center">
+
+              <a class="small" href="<?= base_url() ?>auth/lupa">Lupa Password</a>
             </div>
           </div>
           <!-- </div> -->
