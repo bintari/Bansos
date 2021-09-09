@@ -101,23 +101,9 @@ class auth extends CI_Controller
                 'd_created'     => time()
             ];
 
-            // token 
-
-            // ini bisa pake email tapi harus register dulu emailnya
-            // $token = base64_encode(openssl_random_pseudo_bytes(32));
-            // var_dump($token);
-            // die;
-            // $user_token = [
-            //     'email' => $email,
-            //     'token' => $token,
-            //     'date_created' => time()
-            // ];
-            //matiin dulu
+            
             $this->db->insert('user', $data);
-            // $this->db->insert('user_token', $user_token);
-            // $this->_sendEmail($token, 'verify');
-
-
+            
 
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
@@ -139,30 +125,6 @@ class auth extends CI_Controller
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
-
-        //     $this->load->library('email', $config);
-        //     $this->email->initialize($config);
-
-        //     $this->email->from('pantaupemudik@gmail.com', 'Verifikasi Akun');
-        //     $this->email->to($this->input->post('email'));
-
-        //     if ($type == 'verify') {
-
-        //         $this->email->subject('Account Verification');
-        //         $this->email->message('Klik link ini untuk verifikasi akunmu : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '& token=' . urlencode($token) . '">Activate</a>');
-        //     } else if ($type == 'forgot') {
-        //         $this->email->subject('Reset Password');
-        //         $this->email->message('Klik link ini untuk mengganti password akunmu : <a href="' . base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '& token=' . urlencode($token) . '">Reset PAssword</a>');
-        //     }
-
-        //     // $this->email->send();
-
-        //     if ($this->email->send()) {
-        //         return true;
-        //     } else {
-        //         echo $this->email->print_debugger();
-        //         die;
-        //     };
     }
 
     public function verify()
@@ -251,15 +213,7 @@ class auth extends CI_Controller
             $user   = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
             if ($user) {
-                //     $token = base64_encode(openssl_random_pseudo_bytes(32));
-                //     $user_token = [
-                //         'email' => $email,
-                //         // 'token' => $token,
-                //         'date_created' => time()
-                //     ];
-
-                // $this->db->insert('user_token', $user_token);
-                // $this->_sendEmail($token, 'forgot');
+            
 
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Silahkan cek email anda untuk mengubah password</div>');
@@ -270,27 +224,7 @@ class auth extends CI_Controller
                 redirect('auth/forgotPassword');
             }
 
-            //     if ($user) {
-            //         $token = base64_encode(openssl_random_pseudo_bytes(32));
-            //         $user_token = [
-            //             'email' => $email,
-            //             'token' => $token,
-            //             'date_created' => time()
-            //         ];
-
-            //         $this->db->insert('user_token', $user_token);
-            //         $this->_sendEmail($token, 'forgot');
-
-            //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            //         Please check your email to reset your password!</div>');
-
-            //         redirect('auth');
-            //     } else {
-            //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            //         Email is not registered or activated</div>');
-
-            //         redirect('auth/forgotPassword');
-            //     }
+            
         }
     }
 
